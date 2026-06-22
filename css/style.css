@@ -1,0 +1,518 @@
+/* ==========================================================================
+   Global Layout Base Framework
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a0a;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================================================
+   1. Hero Scene Configurations
+   ========================================================================== */
+.landing-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+    overflow: hidden;
+}
+
+.hero-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 10;
+    animation: fadeInGlobal 1s ease forwards;
+}
+
+.nav-logo {
+    font-family: 'League Gothic', sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+}
+
+.nav-status {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888888;
+}
+
+.hero-main-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto auto;
+    z-index: 10;
+}
+
+.hero-subheading {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 6px;
+    color: #888888;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: slideUpGlobal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+.hero-main-title {
+    font-family: 'League Gothic', sans-serif;
+    font-size: min(9vw, 6.5rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: -1px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: slideUpGlobal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+.hero-main-title span { color: rgba(255, 255, 255, 0.2); }
+
+.hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    background: transparent;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: fadeInGlobal 1s ease 0.6s forwards;
+}
+
+.hero-cta-btn svg { transition: transform 0.3s ease; }
+
+.hero-cta-btn:hover {
+    background-color: #ffffff;
+    color: #0a0a0a;
+    border-color: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+}
+
+.hero-cta-btn:hover svg { transform: translateY(3px); }
+
+/* Infinite Ticker Track System */
+.hero-background-accent, .bg-title-wrap {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+}
+
+.hero-background-accent {
+    bottom: -2vh;
+    left: 0;
+}
+
+.ticker-inner {
+    display: inline-block;
+    font-family: 'League Gothic', sans-serif;
+    font-size: 24vw;
+    color: rgba(255, 255, 255, 0.015);
+    line-height: 0.8;
+    animation: marqueeLoop 20s linear infinite;
+}
+
+/* ==========================================================================
+   2. Optimized About Me Structure
+   ========================================================================== */
+.about-me-widget {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; 
+    background-color: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    padding: 40px;
+    overflow: hidden;
+}
+
+.bg-title-wrap {
+    top: 6vh;
+    left: 0;
+    z-index: 1;
+}
+
+.bg-title {
+    display: inline-block;
+    font-family: 'League Gothic', sans-serif;
+    font-size: 13vw; 
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.377);
+    line-height: 0.8;
+    letter-spacing: 2px;
+    animation: marqueeLoop 25s linear infinite reverse;
+}
+
+.about-me-widget .main-content {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    z-index: 2;
+    min-height: 65vh;
+}
+
+.about-me-widget .image-wrapper {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 45%;
+    height: 110%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.about-me-widget .profile-img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 50px rgba(255, 255, 255, 0.201));
+}
+
+.about-me-widget .glass-content-box {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    margin-left: auto;
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.65), rgba(5, 5, 5, 0.45));
+    backdrop-filter: blur(30px) saturate(120%);
+    -webkit-backdrop-filter: blur(30px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.509);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
+}
+
+.about-me-widget .signature-name {
+    font-family: 'Mr De Haviland', cursive;
+    font-size: 5rem; 
+    color: #ffffff;
+    line-height: 0.9;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.about-me-widget .bio-text {
+    font-size: 0.95rem; 
+    color: #cccccc;
+    line-height: 1.6;
+    font-style: italic;
+    text-align: center;
+}
+
+.about-me-widget .card-footer {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 25px;
+    z-index: 4;
+}
+
+.about-me-widget .footer-stars { display: flex; gap: 10px; color: #ffffff; }
+
+/* ==========================================================================
+   3. Projects Showcase Styles
+   ========================================================================== */
+.projects-section {
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects-container {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 2.2fr;
+    gap: 50px;
+}
+
+.projects-title-card {
+    background-color: #0d0d0d;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 24px;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 480px;
+}
+
+.projects-title-card .section-title {
+    font-family: 'League Gothic', sans-serif;
+    font-size: min(9vw, 5.5rem);
+    line-height: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.title-card-accent {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: #666666;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.project-card {
+    background-color: #0d0d0d;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-image-pane {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.project-placeholder-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(10,10,10,0) 30%, rgba(13,13,13,1) 100%);
+}
+
+.project-category {
+    position: absolute;
+    top: 20px; left: 20px;
+    background-color: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: #cccccc;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.project-details {
+    padding: 28px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-name { font-size: 1.3rem; margin-bottom: 12px; font-weight: 500; }
+.project-desc { font-size: 0.85rem; color: #888888; line-height: 1.6; margin-bottom: 30px; }
+
+.project-tech-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.project-tech-stack span {
+    font-size: 0.7rem; background-color: #151515; color: #888888; padding: 5px 12px; border-radius: 6px;
+}
+
+.project-link-arrow {
+    position: absolute;
+    bottom: 28px; right: 28px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background-color: #151515;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Card Interact Hover */
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.project-card:hover .project-placeholder-img { transform: scale(1.05); opacity: 0.75; }
+.project-card:hover .project-link-arrow { background-color: #ffffff; color: #0a0a0a; transform: scale(1.05); }
+
+/* ==========================================================================
+   4. Scroll Reveal Engine Keyframes
+   ========================================================================== */
+.reveal-on-scroll .animate-slide-up,
+.reveal-on-scroll .animate-fade-in,
+.reveal-on-scroll .animate-slide-right,
+.reveal-on-scroll .animate-slide-left {
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll .animate-slide-up { transform: translateY(50px); }
+.reveal-on-scroll .animate-slide-right { transform: translateX(-50px); }
+.reveal-on-scroll .animate-slide-left { transform: translateX(50px); }
+
+.reveal-on-scroll.active .animate-slide-up,
+.reveal-on-scroll.active .animate-slide-right,
+.reveal-on-scroll.active .animate-slide-left {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.reveal-on-scroll.active .animate-fade-in {
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+
+@keyframes fadeInGlobal { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUpGlobal { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes marqueeLoop { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+
+/* ==========================================================================
+   5. COMPLETE MOBILE & SMARTPHONE FIXES (Matches layout from image_ab3866)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Hero Adjustments */
+    .landing-hero { padding: 24px; }
+    .hero-main-title { font-size: min(14vw, 4.2rem); }
+    
+    /* CRITICAL: Safe Mobile Layout Fix for About Me */
+    .about-me-widget {
+        padding: 24px;
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 40px;
+    }
+
+    .bg-title-wrap {
+        top: 2vh;
+    }
+    .bg-title {
+        font-size: 24vw; /* Larger background brutalist statement text */
+    }
+
+    /* Transition layout blueprint from fixed dimensions to stack mechanics */
+    .about-me-widget .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        margin-top: 10vh;
+        gap: 20px;
+    }
+
+    /* Portrait Image Position Refinement */
+    .about-me-widget .image-wrapper {
+        position: relative;
+        width: 85%;
+        height: 380px; 
+        left: auto;
+        bottom: auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin-bottom: -60px; /* Snug overlay behind the text card */
+        z-index: 1;
+    }
+
+    .about-me-widget .profile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* Float Card Responsive Container Fix */
+    .about-me-widget .glass-content-box {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        padding: 30px 24px;
+        z-index: 2; /* Sits perfectly clean over profile image layers */
+    }
+
+    .about-me-widget .signature-name {
+        font-size: 4.2rem;
+    }
+
+    .about-me-widget .bio-text {
+        font-size: 0.9rem;
+    }
+
+    .about-me-widget .card-footer {
+        margin-top: auto;
+        padding-top: 20px;
+    }
+
+    /* Projects Mobile Adaptation */
+    .projects-section { padding: 80px 24px; }
+    .projects-container { grid-template-columns: 1fr; gap: 35px; }
+    .projects-title-card { min-height: auto; padding: 40px 30px; gap: 20px; }
+    .projects-grid { grid-template-columns: 1fr; gap: 25px; }
+}
